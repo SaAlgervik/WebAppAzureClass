@@ -1,0 +1,32 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+
+    <a asp-page-handler="Users" class="btn btn-info" role="button">Get All Users</a>
+
+    <ul class="list-group">
+        <br />
+        @if (Model.Users != null)
+        {
+        @foreach (var item in Model.Users)
+            {
+        <li class="list-group-item">@item.Name</li>
+
+            }
+        }
+
+    </ul>
+</div>
+<br />
+<div class="text-center">
+    <form method="post">
+        <input type="text" asp-for="NewUserName" placeholder="Enter Name" />
+        <input type="submit" class="btn btn-info" />
+    </form>
+
+</div>
