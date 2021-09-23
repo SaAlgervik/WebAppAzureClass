@@ -15,7 +15,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-
+    - name: Log in with Azure
+      uses: azure/login@v1
+      with:
+          creds: '${{ secrets.AZURE_CREDENTIALS }}'
     - name: Set up .NET Core
       uses: actions/setup-dotnet@v1
       with:
@@ -42,10 +45,7 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
-    - name: Log in with Azure
-      uses: azure/login@v1
-      with:
-          creds: '${{ secrets.AZURE_CREDENTIALS }}'
+    
     - name: Azure CLI script
       uses: azure/CLI@v1
       with:
