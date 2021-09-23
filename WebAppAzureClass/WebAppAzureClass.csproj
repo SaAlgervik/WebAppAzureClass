@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include=".github\" />
+    <None Include=".github\workflows\Pipeline.yml" />
   </ItemGroup>
 
 </Project>
